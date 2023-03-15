@@ -1,0 +1,3 @@
+[submodule "k6-operator"]
+	path = k6-operator
+	url = git@github.com:grafana/xk6-output-prometheus-remote.git

@@ -1,0 +1,12 @@
+defaultRules:
+  rules:
+    alertmanager: false
+
+alertmanager:
+  enabled: false
+
+grafana:
+  enabled: true
+prometheus:
+  prometheusSpec:
+    enableRemoteWriteReceiver: true

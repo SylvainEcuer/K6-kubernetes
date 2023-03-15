@@ -1,0 +1,18 @@
+# k6-resource-with-extensions.yml
+
+apiVersion: k6.io/v1alpha1
+kind: K6
+metadata:
+  name: k6-sample-with-extensions
+spec:
+  parallelism: 4
+  script:
+    configMap:
+      name: crocodile-stress-test
+      file: test.js
+  arguments: -o xk6-prometheus-rw
+  runner:
+    image: sylvainpadok/k6-kube-prom:1.0
+    env:
+      - name: K6_PROMETHEUS_RW_SERVER_URL
+        value: http://prometheus-kube-prometheus-prometheus:9090/api/v1/write
